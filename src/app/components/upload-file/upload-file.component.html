@@ -1,0 +1,21 @@
+<form class="uploadForm"
+      #form="ngForm"
+      (ngSubmit)="submitFile()"
+      enctype="multipart/form-data">
+  <div class="form-group fileUpload">
+    <label class="btn btn-primary">
+
+      <input type="file"
+             id="fileUpload"
+
+             name="photo"
+             ngModel
+             (change)="getFiles($event)"
+      >
+    </label>
+  </div>
+  <button type="submit"
+          class="btn btn-primary">上传</button>
+</form>
+<img src="{{imgsrc}}" />
+

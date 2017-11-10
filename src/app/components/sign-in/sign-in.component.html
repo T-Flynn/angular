@@ -1,0 +1,55 @@
+<div class="modal fade" id="SignInModel" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+          aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">SignIn</h4>
+      </div>
+      <div class="modal-body">
+        <form class="form-horizontal" #signInForm="ngForm" (ngSubmit)="doSubmit(signInForm.value,signInFormClose)" >
+          <div class="form-group">
+            <label for="inputTel" class="col-sm-2 control-label">tel</label>
+            <div class="col-sm-10">
+              <input type="tel"
+                     name="phone"
+                     class="form-control"
+                     id="inputTel"
+                     placeholder="telephoneNumber"
+                     ngModel
+                     (blur)="doValidatorFormPhone(signInForm.value)">
+              <div class="alert alert-danger" *ngIf="invalidPhone">请输入正确的电话号码</div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
+            <div class="col-sm-10">
+              <input type="password" name="pwd" class="form-control" id="inputPassword3" placeholder="Password" ngModel (blur)="doValidatorFormPwd(signInForm.value)">
+              <div class="alert alert-danger" *ngIf="invalidPwd">请输入正确的密码格式</div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="captcha" class="col-sm-2 control-label">auth code</label>
+            <div class="col-sm-10">
+              <input type="text" name="captcha" class="form-control" id="captcha" placeholder="auth code" style="width: 20%;display: inline-block" ngModel (blur)="doValidatorFormCaptcha(signInForm.value)">
+              <div style="display: inline-block">
+                <img src="{{captcha}}" alt="点击换一张" id="captchaImg" style="background-color: #31b0d5;border-radius: 5px; cursor: pointer;vertical-align: middle;" (click)="getCaptcha();">
+                <div style="display: inline-block;vertical-align: middle;">
+                  <span>请填写图片中字符,不区分大小写</span>
+                  <br>
+                  <a (click)="getCaptcha();" style="cursor: pointer;">看不清?换一张</a>
+                </div>
+              </div>
+              <div class="alert alert-danger" *ngIf="invalidCaptcha">验证码错误</div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal" #signInFormClose>Close</button>
+            <button type="submit" class="btn btn-primary">SignIn</button>
+          </div>
+        </form>
+
+      </div>
+    </div>
+  </div>
+</div>

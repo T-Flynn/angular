@@ -1,0 +1,20 @@
+.unless {
+  border: 2px solid;
+  padding: 6px;
+}
+p.unless {
+  width: 500px;
+}
+button.a, span.a, .unless.a {
+  color: red;
+  border-color: #ffc70e;
+  background-color: yellow;
+  font-size: 100%;
+}
+button.b, span.b, .unless.b {
+  color: black;
+  border-color: #130bf4;
+  background-color: #0fe5ee;
+  font-size: 100%;
+}
+

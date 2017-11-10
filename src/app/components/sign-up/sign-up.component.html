@@ -1,0 +1,79 @@
+<div class="modal fade" id="SignUpModel" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+          aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel1">SignUP</h4>
+      </div>
+      <div class="modal-body">
+        <form #signUpForm="ngForm" (ngSubmit)="doSubmit(signUpForm.value,signUpFormClose)" class="form-horizontal" id="signUpform">
+          <!-- 电话 -->
+          <div class="form-group">
+            <label for="phone" class="col-sm-2 control-label">tel</label>
+            <div class="col-sm-10">
+              <input type="tel"
+                     class="form-control"
+                     id="phone"
+                     ngModel
+                     placeholder="telephoneNumber"
+                     name="phone"
+                     (blur)="doValidatorFormPhone(signUpForm.value)">
+              <div class="alert alert-danger" *ngIf="invalidPhone">电话号码格式不正确</div>
+            </div>
+          </div>
+          <!-- 密码 -->
+          <div class="form-group">
+            <label for="inputPassword" class="col-sm-2 control-label">Password</label>
+            <div class="col-sm-10">
+              <input
+                type="password"
+                class="form-control"
+                id="inputPassword"
+                placeholder="Password"
+                name="pwd"
+                ngModel
+                (blur)="doValidatorFormPwd(signUpForm.value)">
+              <div class="alert alert-danger" *ngIf="invalidPwd">密码格式错误</div>
+            </div>
+          </div>
+          <!-- 验证密码 -->
+          <div class="form-group">
+            <label for="inputPassword4" class="col-sm-2 control-label">Verify</label>
+            <div class="col-sm-10">
+              <input
+                type="password"
+                class="form-control"
+                id="inputPassword4"
+                placeholder="Verify Password"
+                name="repwd"
+                ngModel
+                (blur)="doValidatorFormRepwd(signUpForm.value)">
+              <div class="alert alert-danger" *ngIf="invalidRepwd">验证密码与原密码不符</div>
+            </div>
+          </div>
+          <!-- 验证码 -->
+          <div class="form-group">
+            <label for="inputPassword5" class="col-sm-2 control-label">auth code</label>
+            <div class="col-sm-10">
+              <input type="text" name="captcha" class="form-control" id="captcha" placeholder="auth code" style="width: 20%;display: inline-block" ngModel (blur)="doValidatorFormCaptcha(signUpForm.value)">
+              <div style="display: inline-block">
+                <img src="{{captcha}}" alt="点击换一张" id="captchaImg" style="background-color: #31b0d5;border-radius: 5px; cursor: pointer;vertical-align: middle;" (click)='getCaptcha();'>
+                <div style="display: inline-block;vertical-align: middle;">
+                  <span>请填写图片中字符,不区分大小写</span>
+                  <br>
+                  <a (click)='getCaptcha();' style="cursor: pointer;">看不清?换一张</a>
+                </div>
+              </div>
+              <div class="alert alert-danger" *ngIf="invalidCaptcha">验证码错误</div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal" #signUpFormClose>Close</button>
+            <button type="submit" class="btn btn-primary">Sign up</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,11 @@
+#example th {
+  display: none !important;
+}
+h3 {
+  margin: 0;
+  line-height:50px;
+}
+.blog-article {
+  margin-top: 20px;
+  text-indent: 2em;
+}

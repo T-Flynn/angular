@@ -1,0 +1,9 @@
+nav {
+  background-color: #000;
+}
+.nav>li>a:hover {
+  background-color: #111;
+}
+.nav>li>a:focus {
+  background-color: #000;
+}

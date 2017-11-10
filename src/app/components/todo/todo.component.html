@@ -1,0 +1,25 @@
+<p>
+  {{title}}
+</p>
+<label>添加待办事项:</label><input #newtodo type="text"><button type="button" (click)="addTodo(newtodo.value);newtodo.value = '';newtodo.focus()">添加</button>
+<ul>
+  <li *ngFor="let todo of todos;let index = index">
+    <input type="checkbox">
+    <span *ngIf="todo.completed" [ngClass]="{completed:todo.completed}" (click)="changeStatus(index)">
+      {{index + 1}}.{{todo.title}}
+    </span>
+    <span *ngIf="!todo.completed" [ngClass]="{disable:!todo.completed}" (click)="changeStatus(index)">
+      {{index + 1}}.{{todo.title}}
+    </span>
+    <button type="button" (click)="delete(index)">删除</button>
+  </li>
+</ul>
+<hr>
+<ul [ngSwitch]="choice">
+  <li *ngSwitchCase="1">First choice</li>
+  <li *ngSwitchCase="2">Second choice</li>
+  <li *ngSwitchCase="3">Third choice</li>
+  <li *ngSwitchDefault>Default choice</li>
+  <li><button type="button" (click)="nextChoice()">切换</button></li>
+</ul>
+

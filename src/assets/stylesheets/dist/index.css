@@ -1,0 +1,251 @@
+@charset "UTF-8";
+*{
+    box-sizing: border-box;
+}
+html,body{
+    margin: 0;
+    padding: 0;
+}
+.navbar-fixed-top{
+    z-index: 10;
+}
+#inputPassword5{
+    display: inline-block;
+    width: 70%;
+}
+.item img{
+    width: 100%;
+    height: 500px;
+}
+header {
+    height: 50px;
+}
+#auth{
+    display: inline-block;
+    width: 29%;
+}
+.modal-title{
+    text-align: center;
+}
+h4{
+    font-size: 25px;
+}
+#in,#up{
+    top:2px;
+    position: fixed;
+}
+#in{
+    right: 350px;
+}
+#up{
+    right: 250px;
+}
+
+/* backtop */
+#go-top{
+    position:fixed;
+    bottom:50px;right:20px;
+    width:80px;height:80px;
+    display:none;
+}
+#go-top a{
+    width:80px;height:80px;
+    display:inline-block;
+    background:url(../../images/go-top.png) no-repeat;
+    outline:none;
+}
+/*footer*/
+footer
+{
+    width: 100%;
+    min-height: 284px;
+    text-align: left;
+    background-color: #000;
+}
+footer dl
+{
+    font-size: 14px;
+
+    display: inline-block;
+    float: left;
+
+    width: 16%;
+    margin-top: 46px;
+
+    text-align: left;
+    vertical-align: top;
+}
+footer dt
+{
+    font-weight: normal;
+
+    margin: 5px 0;
+
+    color: #fff;
+}
+footer dd
+{
+    margin: 5px 0;
+}
+footer dd a
+{
+    text-decoration: none;
+
+    color: #666;
+}
+footer dd a:hover{
+    text-decoration:underline;
+}
+footer section
+{
+    width: 69%;
+    margin: 0 auto;
+}
+footer .footer-right
+{
+    display: inline-block;
+    float: right;
+
+    width: 33%;
+
+    text-align: right;
+}
+footer .footer-right .share
+{
+    font-size: 0;
+
+    margin: 46px 0 0;
+
+    text-align: right;
+}
+footer .footer-right .share-links
+{
+    display: inline-block;
+
+    width: 30px;
+    height: 30px;
+    margin-left: 12px;
+}
+.weixinImg
+{
+    background: rgba(0, 0, 0, 0) url('../../images/download.png') no-repeat scroll -326px -285px;
+}
+.weiboImg
+{
+    background: rgba(0, 0, 0, 0) url('../../images/download.png') no-repeat scroll -404px -285px;
+}
+.facebook
+{
+    background: rgba(0, 0, 0, 0) url('../../images/download.png') no-repeat scroll -366px -285px;
+}
+.twitter
+{
+    background: rgba(0, 0, 0, 0) url('../../images/download.png') no-repeat scroll -285px -285px;
+}
+footer .footer-right .copyright
+{
+    font-size: 12px;
+
+    margin-top: 64px;
+
+    text-align: right;
+
+    color: #454545;
+}
+footer .copyright
+{
+    font-size: 14px;
+    line-height: 71px;
+
+    clear: both;
+
+    width: 100%;
+    height: 72px;
+    margin-top: 40px;
+
+    text-align: center;
+
+    color: #999;
+    border-top: 1px solid #222;
+}
+footer .copyright label{
+    margin-bottom: 0;
+}
+footer .copyright label a{
+    color: #999!important;
+    text-decoration: none;
+    font-size:inherit;
+    float: initial;
+}
+footer .link-exchange-box
+{
+    clear: both;
+    width: 1004px;
+}
+footer .link-exchange
+{
+    font-size: 12px;
+
+    margin: 0 auto;
+}
+footer .link-exchange h5
+{
+    font-size:14px;
+    font-weight: bolder;
+    line-height: 1;
+    display: inline-block;
+    margin: 0;
+}
+footer .link-exchange .tab:nth-child(1){
+    padding-right:18px;border-right:1px solid #999;
+    margin-right:14px;
+}
+footer .link-exchange .tab:nth-child(2){}
+footer .link-exchange .tab{cursor: pointer;color:#666;font-weight: normal;}
+footer .link-exchange .tab.active{color:#999;}
+footer .link-exchange .list-con{display: none;}
+footer .link-exchange .list-con.active{display: block;}
+footer .link-exchange p
+{
+    -webkit-transition: all .2s ease 0s;
+    transition: all .2s ease 0s;
+    display: none;
+}
+footer .link-exchange a
+{
+    line-height: 14px;
+
+    display: inline-block;
+
+    margin-top: 8px;
+    margin-bottom: 8px;
+
+    text-decoration: none;
+    text-indent: 4px;
+
+    color: #666;
+    border-left: 1px solid #666;
+}
+footer .link-exchange a:first-child
+{
+    margin-left: 0;
+
+    text-indent: 0;
+
+    border-left: medium none;
+}
+.footer_first{
+    margin-left:-50px;
+    width: 16% !important;
+}
+.footer_second{
+    width: 18%;
+}
+footer dt{
+    margin-bottom:12px;
+}
+.alert-danger {
+    padding: 5px;
+    margin-top: 10px;
+    margin-bottom: 0;
+}

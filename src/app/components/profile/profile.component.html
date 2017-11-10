@@ -1,0 +1,112 @@
+<article style="width: 80%;margin:0 auto">
+<!--<div *ngIf="pictureUrl">
+  <img src="{{pictureUrl}}" alt="">
+</div>-->
+  <div *ngIf="!pictureUrl">
+    <div >你还没有头像，请上传一张头像</div>
+  </div>
+  <app-upload-file></app-upload-file>
+  <hr>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content" style="box-shadow: none;border: none;">
+      <div class="modal-body">
+        <form class="form-horizontal" id="profileForm" [formGroup]="profileForm" (ngSubmit)="doSubmit(profileForm.value)">
+          <div class="form-group">
+            <label for="realName" class="col-sm-2 control-label">realName</label>
+            <div class="col-sm-10">
+              <input type="text"
+                     name="realName"
+                     class="form-control"
+                     id="realName"
+                     placeholder="Real Name"
+                     [formControl]="profileForm.controls['realName']">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="nickName" class="col-sm-2 control-label">nickName</label>
+            <div class="col-sm-10">
+              <input type="text"
+                     name="nickName"
+                     class="form-control"
+                     id="nickName"
+                     placeholder="nickName"
+                     [formControl]="profileForm.controls['nickName']">
+              <div *ngIf="!profileForm.controls['nickName'].valid"
+                   class="alert alert-danger">昵称格式不正确！</div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="address" class="col-sm-2 control-label">address</label>
+            <div class="col-sm-10">
+              <input type="text"
+                     name="address"
+                     class="form-control"
+                     id="address"
+                     placeholder="address"
+                     [formControl]="profileForm.controls['address']">
+              <div *ngIf="!profileForm.controls['address'].valid"
+                   class="alert alert-danger">address格式不正确！</div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-2 control-label">性别:</label>
+            <input type="radio"
+                   value="1"
+                   #male
+                   checked={{isMale}}
+                   (change)="getGender(male.value)"
+                   name="gender"/>男
+
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <input type="radio"
+                   value="0"
+                   checked={{isFemale}}
+                   #female
+                   (change)="getGender(female.value)"
+                   name="gender"/>女
+
+          </div>
+          <div class="form-group">
+            <label for="phone" class="col-sm-2 control-label">phone</label>
+            <div class="col-sm-10">
+              <input type="tel"
+                     name="phone"
+                     class="form-control"
+                     id="phone"
+                     placeholder="phone"
+                     [formControl]="profileForm.controls['phone']"
+                     readonly>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="age" class="col-sm-2 control-label">age</label>
+            <div class="col-sm-10">
+              <input type="text"
+                     name="age"
+                     class="form-control"
+                     id="age"
+                     placeholder="age"
+                     [formControl]="profileForm.controls['age']">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="email" class="col-sm-2 control-label">email</label>
+            <div class="col-sm-10">
+              <input type="email"
+                     name="email"
+                     class="form-control"
+                     id="email"
+                     placeholder="email"
+                     [formControl]="profileForm.controls['email']">
+              <div *ngIf="!profileForm.controls['email'].valid"
+                   class="alert alert-danger">Email格式不正确！</div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-primary">Save</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</article>

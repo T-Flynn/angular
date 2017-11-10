@@ -1,0 +1,8 @@
+.completed {
+  cursor: pointer;
+  color: #ff0000;
+}
+.disable {
+  cursor: pointer;
+  color: #aaaaaa;
+}

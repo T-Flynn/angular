@@ -1,0 +1,112 @@
+<h1>自定义属性指令</h1>
+<h5 appRedBg> 红色背景色====你好</h5>
+<div>
+  <input type="radio" name="colors" (click)="color='lightgreen'">Green
+  <input type="radio" name="colors" (click)="color='yellow'">Yellow
+  <input type="radio" name="colors" (click)="color='cyan'">Cyan
+</div>
+<h5 [appRedBg]="color"> ====选择上面的颜色改变背景色=====你好</h5>
+<hr/>
+<h1>自定义结构指令</h1>
+<p>
+  当前条件
+  <span [ngClass]="{ a: !condition, b: condition, unless: true }">{{condition}}</span>.
+  <button
+    (click)="condition = !condition"
+    [ngClass] = "{ a: condition, b: !condition }" >
+    改变条件 {{condition ? 'false' : 'true'}}
+  </button>
+</p>
+<p *appStrucDirective="condition" class="unless a">
+  (A) 这段的条件是 false.
+</p>
+
+<p *appStrucDirective="!condition" class="unless b">
+  (B) 这段的条件是 true,
+  因unless被设为 false.
+</p>
+<hr/>
+<ul>
+  <li *ngFor="let user of users;let index = index">
+    <div>登录名:<span>{{user.loginname}}</span></div>
+    <div>邮箱:<span>{{user.email}}</span></div>
+    <div>年龄:<span>{{user.age}}</span></div>
+    <div>电话:<span>{{user.phone}}</span></div>
+  </li>
+</ul>
+
+<div>
+  {{emp}}
+  <br>
+  {{employee}}
+</div>
+<h1>管道</h1>
+<ul>
+  <li>CurrencyPipe - {{ currencyValue | currency: 'USD' }}</li>
+  <li>DatePipe - {{ dateValue | date: 'shortTime'  }}</li>
+  <li>DecimalPipe - {{ decimalValue | number: '3.1-2' }}</li>
+  <li>JsonPipe - {{ jsObject | json }}</li>
+  <li>LowerCasePipe - {{ uppercaseValue | lowercase }}</li>
+  <li>UpperCaseFilter - {{ lowercaseValue | uppercase }}</li>
+  <li>PercentPipe - {{ percentValue | percent: '2.1-2' }}</li>
+  <li>SlicePipe - {{ array | slice: 1: 2 }}</li>
+</ul>
+
+<div>
+  <!-- // 截取第0个字符到第6个字符，即前四个字符 -->
+  <p>{{sliceString}}[0:6]: '{{sliceString | slice:0:6}}'</p>　
+
+  <!--// 截取字符串最后6个字符 -->          　　　　
+  <p>{{sliceString}}[-6]: '{{sliceString | slice:-6}}'</p>　
+
+  <!--//从字符串倒数第6个字符开始截取，直至倒数第二个字符 -->          　　　　
+  <p>{{sliceString}}[-6:-2]: '{{sliceString | slice:-6:-2}}'</p>　
+</div>
+
+<div>
+  <label>Name: </label><input #name (keyup)="change(name.value)" type="text">
+  <p>In lowercase: <pre>'{{strValue | lowercase}}'</pre>
+  <p>In uppercase: <pre>'{{strValue | uppercase}}'</pre>
+</div>
+<div>
+  <pre>{{blog}}</pre>
+  <p>With JSON pipe:</p>
+  <pre>{{blog | json}}</pre>
+</div>
+<div>
+  <h1>格式化整数小数取位数</h1>
+  <p>e (no formatting): {{e}} </p>
+
+  <!--//整数最小有3位。小数最小有一位，最多有5位 -->
+  <p>e (3.1-5): {{e | number:'3.1-5'}} </p>　　　　
+  <p>pi (no formatting): {{pi}} </p>
+
+  <!--//整数最小3位，小数只能有5位-->
+  <p>pi (3.5-5): {{pi | number:'3.5-5'}} </p>　
+</div>
+<div>
+  <h1>数字格式化百分数</h1>
+  <p>p_pe (no formatting): {{p_pe}} </p>
+
+  <p>p_pe (1.2-2): {{p_pe | percent:'1.2-2'}} </p>　　　　
+  <p>p_pi (no formatting): {{p_pi}} </p>
+
+  <p>p_pi (1.2-2): {{p_pi | percent:'1.2-2'}} </p>
+</div>
+<div>
+  <h1>数字格式化为货币</h1>
+  <p>A: {{334.90 | currency:'USD':false}}</p>
+  <p>B: {{546346.89 | currency:'USD':true:'4.2-2'}}</p>
+  <p>{{ 123 | currency }}
+</div>
+<div>
+  <h1>时间格式化</h1>
+  <p>medium:{{ today | date:'medium' }}</p>
+  <p>short:{{ today | date:'short' }}</p>
+  <p>fullDate:{{ today | date:'fullDate' }}</p>
+  <p>longDate:{{ today | date:'longDate' }}</p>
+  <p>mediumDate:{{ today | date:'mediumDate' }}</p>
+  <p>shortDate:{{ today | date:'shortDate' }}</p>
+  <p>mediumTime:{{ today | date:'mediumTime' }}</p>
+  <p>shortTime:{{ today | date:'shortTime' }}</p>
+</div>
