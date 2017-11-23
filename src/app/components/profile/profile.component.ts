@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder,Validators,  FormGroup, FormControl} from '@angular/forms';
-import {Http, Response,RequestOptions,Headers} from '@angular/http';
+import { FormBuilder, Validators, FormGroup, FormControl } from '@angular/forms';
+import { Http, Response, RequestOptions, Headers } from '@angular/http';
 import { AuthService } from "../../services/auth.service";
 
 declare var $: any;
